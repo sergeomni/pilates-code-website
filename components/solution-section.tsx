@@ -13,7 +13,7 @@ export function SolutionSection() {
             Решение — в Системе, а не в хаотичных усилиях
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground font-light max-w-3xl mx-auto px-4">
-            Мы не даем вам случайный набор упражнений. Мы даем вам{" "}
+            Мы не даем вам случайный набор упражнений. <br></br>Мы даем вам{" "}
             <strong className="font-medium text-foreground">инструкцию к вашему телу</strong>.
           </p>
         </div>

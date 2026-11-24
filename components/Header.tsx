@@ -38,18 +38,20 @@ export function Header() {
   ]
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-24 md:h-28">
-          <div className="flex items-center">
-            <Link href="/" aria-label="PILATES CODE - На главную">
-              <img src="/logo.svg" alt="PILATES CODE Logo" className="h-16 w-auto" />
-            </Link>
-          </div>
+<header
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    isScrolled
+      ? "bg-background/90 backdrop-blur-md border-b border-border shadow-sm"
+      : "bg-background/70 backdrop-blur-md border-b border-black/5"
+  }`}
+>
+  <div className="container mx-auto px-4">
+    <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="flex items-center">
+        <Link href="/" aria-label="PILATES CODE - На главную">
+          <img src="/logo.svg" alt="PILATES CODE Logo" className="h-12 md:h-14 w-auto" />
+        </Link>
+      </div>
 
           <nav className="hidden lg:flex items-center space-x-10">
             {navLinks.map((link) => (
@@ -72,7 +74,7 @@ export function Header() {
               </a>
             </div>
             <Button asChild className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground font-light px-8 text-lg">
-              <Link href="https://dikidi.net/1632097" target="_blank" rel="noopener noreferrer">
+              <Link href="https://pilatescode.fitbase.io/schedule-fitbase-widget?club=1" target="_blank" rel="noopener noreferrer">
                 Записаться онлайн
               </Link>
             </Button>
@@ -107,7 +109,7 @@ export function Header() {
                   </a>
                 </div>
                 <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-light text-xl py-6">
-                  <Link href="https://dikidi.net/1632097" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://pilatescode.fitbase.io/schedule-fitbase-widget?club=1" target="_blank" rel="noopener noreferrer">
                     Записаться онлайн
                   </Link>
                 </Button>

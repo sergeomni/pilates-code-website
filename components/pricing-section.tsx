@@ -77,7 +77,7 @@ export function PricingSection() {
                 </CardDescription>
                 <div className="text-2xl font-medium text-foreground mb-6">{program.price}</div>
                 <Button asChild variant="outline" className="w-full border-primary/50 text-primary hover:bg-primary/10 hover:text-primary">
-                  <Link href="https://dikidi.net/1632097" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://pilatescode.fitbase.io/schedule-fitbase-widget?club=1" target="_blank" rel="noopener noreferrer">
                     Записаться
                   </Link>
                 </Button>

@@ -1,46 +1,65 @@
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Activity, Zap, ShieldOff } from "lucide-react"
-
 export function ProblemSection() {
-  const problems = [
+  const requests = [
     {
-      icon: <Activity className="w-8 h-8 text-primary" />,
-      title: "Боль и скованность",
-      description: "Постоянные боли в спине, шее или суставах, которые мешают вам жить и работать продуктивно.",
+      number: "01",
+      title: "Напряжение в спине, шее и пояснице",
+      description:
+        "Сидячая работа, долгие поездки за рулём и накопленный стресс перегружают позвоночник. Убираем хронические зажимы через декомпрессию и мягкое вытяжение.",
     },
     {
-      icon: <Zap className="w-8 h-8 text-primary" />,
-      title: "Усталость и стресс",
-      description: "Недостаток энергии, быстрая утомляемость и ощущение, что тело не справляется с нагрузками.",
+      number: "02",
+      title: "Нарушение осанки и асимметрия",
+      description:
+        "Сутулость, перекос плеч или таза меняют механику каждого шага. Возвращаем телу правильную ось, лёгкость походки и естественную грацию.",
     },
     {
-      icon: <ShieldOff className="w-8 h-8 text-primary" />,
-      title: "Потеря гибкости и тонуса",
-      description: "Чувство, что тело стало “деревянным”, а мышцы ослабли, что влияет на вашу осанку и грацию.",
+      number: "03",
+      title: "Бережное восстановление без риска",
+      description:
+        "Реабилитация после травм, операций или родов требует ювелирной точности. Пружины реформера позволяют дозировать нагрузку без давления на суставы.",
+    },
+    {
+      number: "04",
+      title: "Сила, рельеф и выносливость без износа",
+      description:
+        "Когда классический тренажёрный зал не подходит или утомляет. Включаем глубокую мускулатуру кора, формируем подтянутый силуэт и стабильный тонус.",
     },
   ]
 
   return (
-    <section id="problem" className="py-20 sm:py-28 bg-muted/50">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-medium text-foreground mb-6">
-          Ваше тело подает сигналы...
-        </h2>
-        <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-20">
-          ...но в суете современной жизни мы часто игнорируем их, пока они не превратятся в хроническую проблему. Узнаете себя?
-        </p>
+    <section id="problem" className="py-20 sm:py-28 bg-muted/40">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-primary font-medium mb-3">
+            Точка входа
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-foreground mb-5 leading-tight">
+            С какими задачами приходят в PILATES CODE
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed">
+            Работаем с первопричиной дискомфорта и выстраиваем устойчивую биомеханику тела — независимо от вашего уровня подготовки.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {problems.map((problem, index) => (
-            <Card key={index} className="bg-background border-border text-left p-6 shadow-sm hover:shadow-lg transition-shadow">
-              <CardHeader className="p-0">
-                <div className="mb-5">{problem.icon}</div>
-                <CardTitle className="text-2xl font-medium text-foreground mb-3">{problem.title}</CardTitle>
-                <CardDescription className="text-base text-foreground/80 leading-relaxed">
-                  {problem.description}
-                </CardDescription>
-              </CardHeader>
-            </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          {requests.map((item) => (
+            <div
+              key={item.number}
+              className="group bg-background border border-border/80 rounded-2xl p-7 sm:p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-md"
+            >
+              <div className="flex items-baseline justify-between mb-4">
+                <span className="text-sm font-serif tracking-widest text-primary/80">
+                  {item.number}
+                </span>
+                <span className="h-px w-12 bg-border group-hover:bg-primary/40 transition-colors" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-serif font-medium text-foreground mb-3">
+                {item.title}
+              </h3>
+              <p className="text-base text-muted-foreground font-light leading-relaxed">
+                {item.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

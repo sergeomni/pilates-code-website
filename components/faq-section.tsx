@@ -1,74 +1,112 @@
-// ---> Вставьте этот код в components/faq-section.tsx
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
+
+const TELEGRAM_QUESTION_URL = `https://t.me/pilatescode_spb?text=${encodeURIComponent(
+  "Здравствуйте! У меня есть вопрос по занятиям в PILATES CODE."
+)}`
 
 export function FAQSection() {
   const faqs = [
     {
-      id: "what-is-pilates-code",
-      question: "Что такое система PILATES CODE?",
+      id: "how-to-book",
+      question: "Как записаться на персональную тренировку или в мини-группу?",
       answer:
-        "PILATES CODE — это структурированная методика, основанная на классическом пилатесе, но адаптированная для современного человека. Мы используем научный подход к движению, анализируем индивидуальные особенности тела и создаем персональную программу развития.",
+        "В мини-группы можно записаться мгновенно в любое время через онлайн-расписание на сайте. Для персональных, сплит-тренировок и Стартового пакета напишите администратору в Telegram — мы подберём специалиста и удобное окно. Постоянным клиентам также доступна самостоятельная запись на все форматы через наше мобильное приложение.",
     },
     {
       id: "beginner-friendly",
-      question: "Подходит ли PILATES CODE новичкам?",
+      question: "Подходит ли PILATES CODE новичкам без подготовки?",
       answer:
-        "Абсолютно! Система разработана так, чтобы быть доступной для людей любого уровня подготовки. Стартовый пакет специально создан для безопасного введения в методику и изучения основных принципов.",
+        "Да. Оборудование настраивается под ваши параметры с помощью системы пружин — оно может как облегчать движение и поддерживать суставы, так и добавлять нагрузку. Для максимально бережного старта рекомендуем Стартовый пакет «Первый КОД» из 3 персональных занятий с диагностикой.",
     },
     {
-      id: "results-timeline",
-      question: "Через какое время будут видны результаты?",
+      id: "what-to-bring",
+      question: "Что нужно взять с собой на первую тренировку?",
       answer:
-        "Первые изменения в самочувствии и осанке вы заметите уже после стартового пакета (3 занятия). Устойчивые результаты формируются через 2-3 месяца регулярных занятий. Каждый организм индивидуален, поэтому сроки могут варьироваться.",
+        "Удобную облегающую спортивную одежду без молний и металлических элементов (чтобы не повредить обивку реформеров и тренер видел точность выравнивания корпуса) и чистые носки — лучше с противоскользящим покрытием. Вода, чай, кофе и всё оборудование уже есть в студии.",
     },
     {
       id: "medical-conditions",
-      question: "Можно ли заниматься при проблемах со спиной?",
+      question: "Можно ли заниматься при болях в спине или ограничениях?",
       answer:
-        "PILATES CODE особенно эффективен при проблемах с позвоночником. Однако перед началом занятий рекомендуем проконсультироваться с врачом. Наши тренеры имеют опыт работы с различными ограничениями и адаптируют программу под ваши потребности.",
+        "Пилатес на большом оборудовании — один из самых безопасных и эффективных методов работы с позвоночником и суставами. При наличии грыж, протрузий или после травм важно начинать именно с персональной диагностики и иметь допуск врача. Тренер адаптирует амплитуду и нагрузку под ваше состояние.",
     },
     {
       id: "reformer-vs-mat",
-      question: "Чем занятия на реформере отличаются от занятий на коврике (мате)?",
+      question: "Чем занятия на реформере отличаются от пилатеса на коврике?",
       answer:
-        "Мат — это основа пилатеса, где вы работаете с весом собственного тела. Реформер добавляет два ключевых элемента: поддержку и сопротивление за счет системы пружин. Он помогает глубже и точнее проработать мышцы, быстрее освоить сложные движения и является незаменимым инструментом для реабилитации и построения сильного, выровненного тела. В нашей студии мы используем оба направления для достижения наилучшего результата.",
+        "На мате вы работаете только с весом собственного тела. Реформер и большое студийное оборудование добавляют пружинное сопротивление и векторную поддержку: это позволяет точнее включать глубокие мышцы-стабилизаторы, разгружать перенапряжённые зоны и быстрее выстраивать правильную биомеханику.",
+    },
+    {
+      id: "results-timeline",
+      question: "Через какое время будут заметны результаты?",
+      answer:
+        "Лёгкость в спине и лучшее ощущение осанки большинство клиентов замечают уже после первых 2–3 занятий. Устойчивая перестройка мышечного тонуса и привычки движения формируется за 2–3 месяца при регулярном графике 2–3 раза в неделю.",
     },
     {
       id: "group-vs-personal",
-      question: "Что лучше: персональные или групповые занятия?",
+      question: "С чего лучше начать: с персональных тренировок или мини-группы?",
       answer:
-        "Рекомендуем начать с персональных занятий (стартовый пакет) для изучения основ и выявления индивидуальных особенностей. После этого можно переходить к групповым занятиям или продолжать персональные тренировки для более быстрого прогресса.",
+        "Если есть конкретные запросы по спине, восстановлению или вы впервые на реформере — оптимальнее пройти Стартовый пакет (3 персональных занятия). Освоив базовые принципы дыхания и настройки оборудования, вы сможете комфортно заниматься как в мини-группах, так и продолжать персональный маршрут.",
     },
   ]
 
   return (
-    // 1. Добавлен фоновый цвет для секции
-    <section id="faq" className="py-20 sm:py-28 bg-background">
+    <section
+      id="faq"
+      className="py-20 sm:py-28 bg-muted/40 border-t border-border/50"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-medium text-foreground mb-4">Ответы на ваши вопросы</h2>
+        <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-primary font-medium mb-3">
+            Частые вопросы
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-foreground mb-5 leading-tight">
+            Ответы перед первым визитом
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed">
+            Собрали главное о записи, подготовке к тренировке и работе на оборудовании.
+          </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-3.5">
             {faqs.map((faq) => (
-              <AccordionItem 
-                key={faq.id} 
-                value={faq.id} 
-                // 2. Улучшен дизайн каждого элемента аккордеона
-                className="border border-border rounded-lg bg-background shadow-sm data-[state=open]:border-primary transition-all"
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="border border-border/80 rounded-2xl bg-background px-6 data-[state=open]:border-primary/50 transition-colors"
               >
-                <AccordionTrigger className="text-left text-lg md:text-xl font-serif font-medium text-foreground hover:no-underline px-6 py-5">
-                  {/* 3. Увеличен шрифт заголовка */}
+                <AccordionTrigger className="text-left text-lg sm:text-xl font-serif font-medium text-foreground hover:no-underline py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-base md:text-lg text-muted-foreground font-light leading-relaxed px-6 pb-5">
-                  {/* 4. Увеличен шрифт ответа */}
+                <AccordionContent className="text-base text-muted-foreground font-light leading-relaxed pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
+
+          <div className="mt-10 text-center">
+            <p className="text-sm sm:text-base text-muted-foreground font-light">
+              Не нашли ответ на свой вопрос?{" "}
+              <Link
+                href={TELEGRAM_QUESTION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium text-primary hover:underline underline-offset-4"
+              >
+                Напишите администратору в Telegram
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </section>
